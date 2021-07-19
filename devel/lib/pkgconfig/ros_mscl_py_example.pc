@@ -1,0 +1,8 @@
+prefix=/home/warwickboring/catkin_ws/devel
+
+Name: ros_mscl_py_example
+Description: Description of ros_mscl_py_example
+Version: 1.1.3
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

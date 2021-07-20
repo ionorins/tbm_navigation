@@ -1,2 +1,0 @@
-ROS-MSCL/Examples/ros_mscl_cpp_example:ROS-MSCL/Examples/ros_mscl_py_example:ROS-MSCL/mscl_msgs:ROS-MSCL/ros_mscl:teb_local_planner
--DCATKIN_DEVEL_PREFIX=/home/warwickboring/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/warwickboring/catkin_ws/install -G Unix Makefiles

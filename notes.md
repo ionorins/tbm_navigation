@@ -11,6 +11,14 @@ I think that `/initalpose` is what we want for setting current location and `
 Use `catkin_make` to build the necessary files
 Then `roslaunch commander listener.launch` to run
 
+# ROS Bridge
+ROS bridge is required for the web dashboard
+`sudo apt-get install ros-noteic-rosbridge-suite`
+Then: `source /opt/ros/<rosdistro>/setup.bash`
+
+
+
+
 # Commands
 - `roslaunch teb_local_planner test_optim_node.launch` Launches test sim
 

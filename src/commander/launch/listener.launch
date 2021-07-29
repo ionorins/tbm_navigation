@@ -5,10 +5,9 @@
   <arg name="name" default="listener_py" />
   <arg name="device" default="gx5" />
 
-  <node name="listener_py"
-    pkg="commander"
-    type="listener.py" output="screen" ns="$(arg name)">
-      <param name="device" value="$(arg device)" type="str" />
+  <node name="listener_py" pkg="commander" type="listener.py" output="screen" ns="$(arg name)">
+    <param name="device" value="$(arg device)" type="str" />
   </node>
+
 
 </launch>

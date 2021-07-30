@@ -6,6 +6,8 @@ import rospy
 import roslib
 from rospy.timer import sleep
 
+from std_msgs.msg import Float32
+
 
 from commander import msg  # Import action messages from the commander package
 
@@ -37,6 +39,7 @@ class SetPitchServer:
 
             feedbackMsg = msg.SetAngleFeedback(currentPitch)
             self.server.publish_feedback(feedbackMsg)
+            currentPitchPub.publish(currentPitch)
             sleep(0.005)
 
         # rospy.loginfo(f"Goal: {goal.target_angle}")
@@ -50,6 +53,12 @@ class SetPitchServer:
 
 
 if __name__ == '__main__':
-    rospy.init_node('set_pitch_server')
+    rospy.init_node('set_angle_server')
     server = SetPitchServer()
+
+    # Setup publisher of current angle
+    global currentPitchPub
+    currentPitchPub = rospy.Publisher(
+        'current_pitch', Float32, queue_size=10, latch=True)
+
     rospy.spin()

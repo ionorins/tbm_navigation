@@ -1,22 +1,21 @@
+
+# Building
+I'm hoping this covers everything that is needed to get it up and running :)
+## ROS Bridge
+ROS bridge is required for the web dashboard
+`sudo apt-get install ros-noteic-rosbridge-suite`
+Then: `source /opt/ros/<rosdistro>/setup.bash`
+
+## 
+Use `catkin_make` to build the necessary files
+Then `roslaunch commander listener.launch` to run
+
 # Notes
 Basically just a file to keep commands cause I keep forgetting them :)
 
 I think that `/initalpose` is what we want for setting current location and `
 
 `rosrun tf static_transform_publisher 0.0 0.0 0.0 0.0 0.0 0.0 odom my_frame 100` Fixes the tf error, but is static so nothing changes
-
-
-
-# Building
-Use `catkin_make` to build the necessary files
-Then `roslaunch commander listener.launch` to run
-
-# ROS Bridge
-ROS bridge is required for the web dashboard
-`sudo apt-get install ros-noteic-rosbridge-suite`
-Then: `source /opt/ros/<rosdistro>/setup.bash`
-
-
 
 
 # Commands
@@ -40,12 +39,4 @@ Then: `source /opt/ros/<rosdistro>/setup.bash`
 # Useful Resources
 - Has some good stuff on topics http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics
 - Launch help http://wiki.ros.org/roslaunch/XML
-
-
-
-Hey Ion,
-
-So I've managed to get rid of the error with this command: `rosrun tf static_transform_publisher 0.0 0.0 0.0 0.0 0.0 0.0 odom my_frame 100`. However it doesn't allow for the goal / inital pose to be updated. I am thinking this could be because it is static perhaps? 
-
-I then had a further look at the teb tutorials and noticed it said that it needs to comply with the 2d nav package (http://wiki.ros.org/teb_local_planner/Tutorials/Configure%20and%20run%20Robot%20Navigation Section 1) which then links to the navigation: robot setup (http://wiki.ros.org/navigation/Tutorials/RobotSetup) which i think is needed before we can continue? Section 1 lists the things required. I think there are some things that are optional nodes but by the looks of it sensor transforms, odometry, sensor information and the base controller (which I think is what takes "velocity" signals and outputs to the tbm?)
 

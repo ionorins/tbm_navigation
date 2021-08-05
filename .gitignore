@@ -1,2 +1,8 @@
 build/
+<<<<<<< HEAD
 develop/
+=======
+devel/
+.vscode/c_cpp_properties.json
+.vscode/settings.json
+>>>>>>> dfe2339bc83a0ae72f8463cb9d494560c74b6ca1

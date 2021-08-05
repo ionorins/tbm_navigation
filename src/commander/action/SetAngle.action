@@ -1,0 +1,8 @@
+# Define the goal
+float32 target_angle  # Specify the target angle
+---
+# Define the result
+float32 final_angle # Final angle
+---
+# Define a feedback message - Current angle
+float32 current_angle

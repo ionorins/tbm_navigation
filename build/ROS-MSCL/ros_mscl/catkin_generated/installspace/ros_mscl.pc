@@ -1,8 +1,0 @@
-prefix=/home/warwickboring/catkin_ws/install
-
-Name: ros_mscl
-Description: Description of ros_mscl
-Version: 1.1.3
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: roscpp cmake_modules tf2 tf2_ros tf2_geometry_msgs std_msgs std_srvs geometry_msgs sensor_msgs nav_msgs message_runtime mscl_msgs

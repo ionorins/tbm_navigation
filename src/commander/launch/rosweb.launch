@@ -1,0 +1,22 @@
+<launch>
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+        <arg name="port" value="9090" />
+    </include>
+
+    <!-- Declare arguments with default values -->
+    <arg name="name" default="set_angles" />
+    <arg name="device" default="gx5" />
+
+    <node name="set_angles" pkg="commander" type="setAngles.py" output="screen" ns="$(arg name)">
+        <param name="device" value="$(arg device)" type="str" />
+    </node>
+
+    <!-- Params for min max angles -->
+    <param name="pitch/min" value="-35" />
+    <param name="pitch/max" value="35" />
+
+    <param name="yaw/min" value="-35" />
+    <param name="yaw/max" value="35" />
+
+
+</launch>

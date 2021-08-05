@@ -15,7 +15,7 @@ x = C(0, 0, 0)
 g = C(0, 0, -9.80665)
 g = []
 prev_time = None
-calibration_iters = 500
+calibration_iters = 5
 
 i = 0
 

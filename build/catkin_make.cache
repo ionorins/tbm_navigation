@@ -1,2 +1,2 @@
-ROS-MSCL/Examples/ros_mscl_cpp_example:ROS-MSCL/Examples/ros_mscl_py_example:ROS-MSCL/mscl_msgs:ROS-MSCL/ros_mscl:teb_local_planner
+ROS-MSCL/Examples/ros_mscl_cpp_example:ROS-MSCL/Examples/ros_mscl_py_example:ROS-MSCL/mscl_msgs:ROS-MSCL/ros_mscl:commander:realsense-ros/realsense2_camera:realsense-ros/realsense2_description:ssl_slam
 -DCATKIN_DEVEL_PREFIX=/home/warwickboring/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/warwickboring/catkin_ws/install -G Unix Makefiles

@@ -131,11 +131,14 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/warwickboring/catkin_ws/build/gtest/cmake_install.cmake")
+  include("/home/warwickboring/catkin_ws/build/realsense-ros/realsense2_description/cmake_install.cmake")
   include("/home/warwickboring/catkin_ws/build/ROS-MSCL/mscl_msgs/cmake_install.cmake")
+  include("/home/warwickboring/catkin_ws/build/commander/cmake_install.cmake")
   include("/home/warwickboring/catkin_ws/build/ROS-MSCL/Examples/ros_mscl_cpp_example/cmake_install.cmake")
   include("/home/warwickboring/catkin_ws/build/ROS-MSCL/Examples/ros_mscl_py_example/cmake_install.cmake")
+  include("/home/warwickboring/catkin_ws/build/realsense-ros/realsense2_camera/cmake_install.cmake")
+  include("/home/warwickboring/catkin_ws/build/ssl_slam/cmake_install.cmake")
   include("/home/warwickboring/catkin_ws/build/ROS-MSCL/ros_mscl/cmake_install.cmake")
-  include("/home/warwickboring/catkin_ws/build/teb_local_planner/cmake_install.cmake")
 
 endif()
 

@@ -10,4 +10,13 @@
     <node name="set_angles" pkg="commander" type="setAngles.py" output="screen" ns="$(arg name)">
         <param name="device" value="$(arg device)" type="str" />
     </node>
+
+    <!-- Params for min max angles -->
+    <param name="pitch/min" value="-35" />
+    <param name="pitch/max" value="35" />
+
+    <param name="yaw/min" value="-35" />
+    <param name="yaw/max" value="35" />
+
+
 </launch>

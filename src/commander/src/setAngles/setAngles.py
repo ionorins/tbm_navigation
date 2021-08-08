@@ -59,7 +59,7 @@ if __name__ == '__main__':
     # Setup publisher of current angle
     global currentPitchPub
     currentPitchPub = rospy.Publisher(
-        'current_pitch', Float32, queue_size=10, latch=True)
+        'pitch/current', Float32, queue_size=10, latch=True)
     longPublisher = rospy.Publisher(
         'longitude', Float32, queue_size=10, latch=True)
     longPublisher.publish(6.9)

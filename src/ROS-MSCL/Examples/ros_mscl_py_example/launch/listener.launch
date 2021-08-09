@@ -5,10 +5,21 @@
   <arg name="name" default="listener_py" />
   <arg name="device" default="gx5" />
 
-  <node name="listener_py"
-    pkg="ros_mscl_py_example"
-    type="listener.py" output="screen" ns="$(arg name)">
-      <param name="device" value="$(arg device)" type="str" />
+  <node name="listener_py" pkg="ros_mscl_py_example" type="listener.py" output="screen" ns="$(arg name)">
+    <param name="device" value="$(arg device)" type="str" />
+
+    <!-- distance between lidar and cutterhead -->
+    <param name="d" value="1" type="str" />
+
+    <!-- lidar coords -->
+    <param name="x" value="0" type="str" />
+    <param name="y" value="0" type="str" />
+    <param name="z" value="0" type="str" />
+
+    <!-- lidar orientation -->
+    <param name="roll" value="0" type="str" />
+    <param name="pitch" value="0" type="str" />
+    <param name="yaw" value="0" type="str" />
   </node>
 
 </launch>

@@ -12,13 +12,25 @@ def C(*x):
     return np.array(x, dtype=np.float64).reshape((-1, 1))
 
 
-pub = rospy.Publisher('/ch', Pose, queue_size=64)
+pub_ch = rospy.Publisher('/ch', Pose, queue_size=64)
+pub_li = rospy.Publisher('/li', Pose, queue_size=64)
 
-d = 1
-x0_li = 0
-y0_li = 0
-z0_li = 0
-q0_li = quaternion_from_euler(0, 0, 0)  # roll pitch yaw
+
+# distance between li and ch
+d = float(rospy.get_param('/listener_py/listener_py/d', 4.5))
+
+# li coords
+x0_li = float(rospy.get_param('/listener_py/listener_py/x', 0))
+y0_li = float(rospy.get_param('/listener_py/listener_py/y', 0))
+z0_li = float(rospy.get_param('/listener_py/listener_py/z', 0))
+
+# lidar orientation
+q0_li = quaternion_from_euler(
+    float(rospy.get_param('/listener_py/listener_py/roll', 0)), # roll
+    float(rospy.get_param('/listener_py/listener_py/pitch', math.pi / 6)), # pitch
+    float(rospy.get_param('/listener_py/listener_py/yaw', 0)), # yaw
+)
+
 rot_li = quaternion_matrix(q0_li)[:3, :3]
 
 x_li = 0
@@ -30,6 +42,7 @@ def liDataCallback(path: Path):
     global x_li, y_li, z_li
 
     pos = path.poses[-1].pose
+    pub_li.publish(pos)
 
     x_li = -pos.position.x
     y_li = -pos.position.y
@@ -48,18 +61,18 @@ def imuDataCallback(imu: Imu):
 
     r, p, y = euler_from_quaternion(q_ins)
     deg = 180 / math.pi
-    print('roll: ', r * deg)
-    print('pitch: ',  p * deg)
-    print('yaw: ', y * deg)
+    # print('roll: ', r * deg)
+    # print('pitch: ',  p * deg)
+    # print('yaw: ', y * deg)
 
     q_ch = quaternion_multiply(q_rot, q_ins)
 
     rot = quaternion_matrix(q_ch)[:3, :3]
 
-    r, p, y = euler_from_quaternion(q_ch)
-    print('ch roll: ', r * deg)
-    print('ch pitch: ',  p * deg)
-    print('ch yaw: ', y * deg)
+    # r, p, y = euler_from_quaternion(q_ch)
+    # print('ch roll: ', r * deg)
+    # print('ch pitch: ',  p * deg)
+    # print('ch yaw: ', y * deg)
 
     dpos = C(
         d,
@@ -84,7 +97,7 @@ def imuDataCallback(imu: Imu):
     ch_pose.orientation.z = q_ch[2]
     ch_pose.orientation.w = q_ch[3]
 
-    pub.publish(ch_pose)
+    pub_ch.publish(ch_pose)
 
     print(ch_pose)
 

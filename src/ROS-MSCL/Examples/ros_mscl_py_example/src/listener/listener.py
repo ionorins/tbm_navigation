@@ -61,18 +61,18 @@ def imuDataCallback(imu: Imu):
 
     r, p, y = euler_from_quaternion(q_ins)
     deg = 180 / math.pi
-    # print('roll: ', r * deg)
-    # print('pitch: ',  p * deg)
-    # print('yaw: ', y * deg)
+    print('roll: ', r * deg)
+    print('pitch: ',  p * deg)
+    print('yaw: ', y * deg)
 
     q_ch = quaternion_multiply(q_rot, q_ins)
 
     rot = quaternion_matrix(q_ch)[:3, :3]
 
-    # r, p, y = euler_from_quaternion(q_ch)
-    # print('ch roll: ', r * deg)
-    # print('ch pitch: ',  p * deg)
-    # print('ch yaw: ', y * deg)
+    r, p, y = euler_from_quaternion(q_ch)
+    print('ch roll: ', r * deg)
+    print('ch pitch: ',  p * deg)
+    print('ch yaw: ', y * deg)
 
     dpos = C(
         d,
@@ -99,7 +99,7 @@ def imuDataCallback(imu: Imu):
 
     pub_ch.publish(ch_pose)
 
-    print(ch_pose)
+    # print(ch_pose)
 
 
 def listener():

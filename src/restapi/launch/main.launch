@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+
+
+  <node name="main_py" pkg="restapi" type="main.py" output="screen">
+  </node>
+
+
+</launch>

@@ -21,5 +21,8 @@
     <param name="origin/lat" value="36.102764" />
     <param name="origin/long" value="-115.160969" />
 
+    <param name="consumption/energy/graph/enabled" value="true" />
+    <param name="consumption/water/graph/enabled" value="true" />
+
 
 </launch>

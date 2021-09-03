@@ -12,7 +12,7 @@ def C(*x):
     return np.array(x, dtype=np.float64).reshape((-1, 1))
 
 
-pub_ch = rospy.Publisher('/ch', Pose, queue_size=64)
+pub_ch = rospy.Publisher('/ch2', Pose, queue_size=64)
 pub_li = rospy.Publisher('/li', Pose, queue_size=64)
 
 

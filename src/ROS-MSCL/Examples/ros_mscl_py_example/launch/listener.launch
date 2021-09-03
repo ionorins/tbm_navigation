@@ -16,7 +16,7 @@
     <param name="y" value="0" type="str" />
     <param name="z" value="0" type="str" />
 
-    <!-- lidar orientation -->
+    <!-- lidar orientation in rad -->
     <param name="roll" value="0" type="str" />
     <param name="pitch" value="0" type="str" />
     <param name="yaw" value="0" type="str" />

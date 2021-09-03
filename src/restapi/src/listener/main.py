@@ -1,12 +1,15 @@
 #! /usr/bin/env python
 from fastapi import FastAPI, Request
 import rospy
-from std_msgs.msg import Float64
+from rospy.rostime import Time
+from std_msgs.msg import Float64, Int64
 import uvicorn
 from geometry_msgs.msg import Pose
 import numpy as np
 
 from tf.transformations import quaternion_matrix
+
+from llist import dllist, dllistnode
 
 rospy.init_node('restapi', anonymous=True)
 app = FastAPI()
@@ -27,6 +30,9 @@ x = 0
 y = 0
 z = 0
 
+# Create list for consumption points
+energy_consumption_points = dllist()
+
 
 def interpolate(curr_amp):
     return min_d + (curr_amp - min_amp) / (max_amp - min_amp) * (max_d - min_d)
@@ -46,6 +52,9 @@ rospy.Subscriber(('/ch2'), Pose, update_pose)
 
 pose = Pose()
 last_r = None
+
+pub_piston_left = rospy.Publisher('/piston/left', Float64, queue_size=64)
+pub_energy_ping = rospy.Publisher('/energy/ping', Int64, queue_size=64)
 
 
 @app.post('/piston/left')
@@ -134,6 +143,14 @@ def update_ch(x: Pose):
 
 
 rospy.Subscriber(('/ch'), Pose, update_ch)
+
+# Consumption
+
+
+@app.get('/consumption/energy/')
+async def handleEnergyConsumptionPoint(request: Request):
+    # Publish to topic (timestamp)
+    pub_energy_ping.publish(int(rospy.get_rostime()))
 
 if __name__ == '__main__':
     uvicorn.run(app, host='0.0.0.0', port=8000)

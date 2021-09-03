@@ -9,3 +9,6 @@ if the rosbag corrupts, reindex it `rosbag reindex *.bag` (http://wiki.ros.org/r
 RELEVANT FILE: src/restapi/src/listener/main.py
 
 NOTE: run `git pull` to get Ion's changes
+
+For web UI: `cd ~/tbm_navigation_web`
+Start VSCode: `code .` from the relevant directory

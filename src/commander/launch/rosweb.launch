@@ -16,8 +16,8 @@
     <param name="pitch/min" value="-0.523599" />
     <param name="pitch/max" value="0.523599" />
 
-    <param name="yaw/min" value="-35" />
-    <param name="yaw/max" value="35" />
+    <param name="yaw/min" value="-0.523599" />
+    <param name="yaw/max" value="0.523599" />
 
     <param name="origin/lat" value="36.102764" />
     <param name="origin/long" value="-115.160969" />

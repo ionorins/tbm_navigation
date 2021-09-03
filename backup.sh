@@ -1,3 +1,3 @@
 source devel/setup.bash
-rosbag record /li
+rosbag record /ch
 

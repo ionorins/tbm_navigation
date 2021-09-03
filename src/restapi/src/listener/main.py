@@ -20,15 +20,11 @@ def C(*x):
 
 # piston sensors
 
-
+# interpolation parameters
 min_amp = 0
 max_amp = 30000
 min_d = 0.2
-max_d = 3
-
-x = 0
-y = 0
-z = 0
+max_d = 4
 
 # Create list for consumption points
 energy_consumption_points = dllist()
@@ -41,6 +37,8 @@ def interpolate(curr_amp):
 ch_pub = rospy.Publisher('/ch', Pose, queue_size=64)
 
 ori = Pose()
+
+
 def update_ori(x: Pose):
     global ori
     ori = x
@@ -73,11 +71,6 @@ async def post_left(request: Request):
         bottom = interpolate(r['bottom']) - interpolate(last_r['bottom'])
         left = interpolate(r['left']) - interpolate(last_r['left'])
         right = interpolate(r['right']) - interpolate(last_r['right'])
-
-        print(top)
-        print(bottom)
-        print(left)
-        print(right)
 
         d = C(
             (top + bottom) / 2 if r['tb'] else 0 +

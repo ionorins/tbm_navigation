@@ -40,15 +40,13 @@ def interpolate(curr_amp):
 
 ch_pub = rospy.Publisher('/ch', Pose, queue_size=64)
 
-ori = 0
-
-
-def update_pose(x: Pose):
+ori = Pose()
+def update_ori(x: Pose):
     global ori
     ori = x
 
 
-rospy.Subscriber(('/ch2'), Pose, update_pose)
+rospy.Subscriber(('/ch2'), Pose, update_ori)
 
 pose = Pose()
 last_r = None
@@ -71,10 +69,15 @@ async def post_left(request: Request):
     )
 
     if last_r is not None:
-        top = interpolate(r['top'] - last_r['top'])
-        bottom = interpolate(r['bottom'] - last_r['bottom'])
-        left = interpolate(r['left'] - last_r['left'])
-        right = interpolate(r['right'] - last_r['right'])
+        top = interpolate(r['top']) - interpolate(last_r['top'])
+        bottom = interpolate(r['bottom']) - interpolate(last_r['bottom'])
+        left = interpolate(r['left']) - interpolate(last_r['left'])
+        right = interpolate(r['right']) - interpolate(last_r['right'])
+
+        print(top)
+        print(bottom)
+        print(left)
+        print(right)
 
         d = C(
             (top + bottom) / 2 if r['tb'] else 0 +

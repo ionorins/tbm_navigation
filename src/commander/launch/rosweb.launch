@@ -24,6 +24,7 @@
 
     <param name="consumption/energy/graph/enabled" value="false" />
     <param name="consumption/water/graph/enabled" value="false" />
+    <param name="distance/graph/enabled" value="false" />
 
 
 </launch>

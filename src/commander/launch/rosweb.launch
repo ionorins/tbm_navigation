@@ -26,5 +26,7 @@
     <param name="consumption/water/graph/enabled" value="false" />
     <param name="distance/graph/enabled" value="false" />
 
+    <param name="telem/send" value="false" />
+
 
 </launch>

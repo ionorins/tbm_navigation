@@ -25,3 +25,16 @@ note: starts sending data packages
 Start VSCode: `code .` from the relevant directory
 
 Change directory to parent directory: `cd ..`
+
+
+ ## Piston Position Calculations (mA -> m)
+- min_amp = 0
+- max_amp = 30000
+- min_d = 0.2
+- max_d = 4
+
+
+**def interpolate(curr_amp):**
+
+    return min_d + (curr_amp - min_amp) / (max_amp - min_amp) * (max_d - min_d)
+ 

@@ -19,8 +19,8 @@
     <param name="yaw/min" value="-0.523599" />
     <param name="yaw/max" value="0.523599" />
 
-    <param name="origin/lat" value="36.102764" />
-    <param name="origin/long" value="-115.160969" />
+    <param name="origin/lat" value="36.1027519" />
+    <param name="origin/long" value="-115.1592040" />
 
     <param name="consumption/energy/graph/enabled" value="false" />
     <param name="consumption/water/graph/enabled" value="false" />
